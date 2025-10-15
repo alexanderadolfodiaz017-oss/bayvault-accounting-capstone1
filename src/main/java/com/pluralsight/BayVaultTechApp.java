@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-
 import java.awt.*;
 
 public class BayVaultTechApp {
@@ -9,3 +8,7 @@ public class BayVaultTechApp {
         homeScreen.showMenu();
     }
 }
+//Notes for presentation:
+//1.this is basically my "Start Screen"
+//2.it creates the start screen & shows the menu
+//3.try to think about as: it turns on your menu screen so everything else can happen after
