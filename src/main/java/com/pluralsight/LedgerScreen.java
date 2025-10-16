@@ -42,11 +42,65 @@ public class LedgerScreen {
             //5.handle any reading errors(Notes)
             e.printStackTrace();
 
+
+
             //below here the ledger menu starts
-            boolean viewingLedger = true;
+            boolean viewingLedger = true;//<----loop repeats everything inside it (the Ledger menu options) until viewingLedger becomes false.
 
+            while (viewingLedger) {//<----- Keeps showing the Ledger menu until the user chooses to go back to Home
 
+                System.out.println();
+                System.out.println("Ledger Menu");
+                System.out.println("A) All transactions");
+                System.out.println("D) Deposits");
+                System.out.println("P) Payments");
+                System.out.println("R) Reports");
+                System.out.println("H) Home");
+                System.out.print("Enter your choice: ");
+
+                String choice = scanner.nextLine().toLowerCase();
+
+                switch (choice) {
+                    case "a":
+                        System.out.println("All transactions (newest first)");
+                        for (int i = transaction.size() - 1; i >= 0; i--) {
+                            System.out.println(transaction.get(i).toCsvLine());
+                        }
+                        break;
+
+                    case "d":
+                        System.out.println("Deposits only");
+                        for (Transaction t : transaction) {
+                            if (t.getAmount() > 0) {
+                                System.out.println(t.toCsvLine());
+                            }
+                        }
+                        break;
+
+                    case "p":
+                        System.out.println("Payments only");
+                        for (Transaction t : transaction) {
+                            if (t.getAmount() < 0) {
+                                System.out.println(t.toCsvLine());
+                            }
+                        }
+                        break;
+
+                    case "r":
+                        System.out.println("Reports coming soon");
+                        break;
+
+                    case "h":
+                        System.out.println("Returning to home screen...");
+                        viewingLedger = false;
+                        HomeScreen home = new HomeScreen();
+                        home.showMenu();
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice. Try again.");
+                        break;
+                }
+            }
         }
     }
-}
-
