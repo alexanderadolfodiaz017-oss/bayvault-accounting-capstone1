@@ -1,5 +1,5 @@
 package com.pluralsight;
-
+//TransactionManager – Saves data to the CSV file
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

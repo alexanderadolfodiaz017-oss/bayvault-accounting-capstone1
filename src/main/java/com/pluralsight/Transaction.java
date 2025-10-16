@@ -1,5 +1,5 @@
 package com.pluralsight;
-
+//Transaction – Holds each transaction’s details
 import java.time.LocalDate;
 import java.time.LocalTime;
 

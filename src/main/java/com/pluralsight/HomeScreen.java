@@ -1,5 +1,5 @@
 package com.pluralsight;
-
+//HomeScreen – Main menu for user options
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
