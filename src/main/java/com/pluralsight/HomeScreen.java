@@ -10,10 +10,10 @@ public class HomeScreen {
 
 
         TransactionManager manager = new TransactionManager();  //This creates one “employee” (manager) that the HomeScreen can talk to.
-                                                                //Classes share info by making objects of each other and sending data through parentheses,
-                                                                // so they can work together like a team — one class asks, and the other class helps do the job.
-                                                                //Example:
-                                                                //Main <–––> HomeScreen <–––> TransactionManager
+        //Classes share info by making objects of each other and sending data through parentheses,
+        // so they can work together like a team — one class asks, and the other class helps do the job.
+        //Example:
+        //Main <–––> HomeScreen <–––> TransactionManager
 
 
 
@@ -22,13 +22,13 @@ public class HomeScreen {
 
 
 
-        System.out.println("Welcome to Bay Vault Tech");
-        System.out.println("(the best banking app in the world!)");
-        System.out.println("D.Add a deposit");
-        System.out.println("p.Make a payment");
-        System.out.println("L.Ledger Screen");
-        System.out.println("X.Exit");
-        System.out.println("D.Make a selection below");
+            System.out.println("Welcome to Bay Vault Tech");
+            System.out.println("(the best banking app in the world!)");
+            System.out.println("D.Add a deposit");
+            System.out.println("p.Make a payment");
+            System.out.println("L.Ledger Screen");
+            System.out.println("X.Exit");
+            System.out.println("D.Make a selection below");
 
 
 

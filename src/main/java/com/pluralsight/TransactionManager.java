@@ -18,6 +18,7 @@ public class TransactionManager {
 
             //3.write to the file(Notes)
             bufWriter.write(line);
+            bufWriter.newLine(); // added this so each entry goes to a new line
 
             //4.close the writer(Notes)
             bufWriter.close();

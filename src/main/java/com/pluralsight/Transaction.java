@@ -75,7 +75,7 @@ public class Transaction {
     public static Transaction parseTransaction(String line) {
 
 
-        String[] parts = line.split("|");
+        String[] parts = line.split("\\|");
         LocalDate date = LocalDate.parse(parts[0]);
         LocalTime time = LocalTime.parse(parts[1]);
         String description = parts[2];
