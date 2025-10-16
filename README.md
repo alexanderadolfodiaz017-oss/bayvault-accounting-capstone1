@@ -17,7 +17,7 @@ Each transaction is stored in `Transaction.csv` in this format:
 - **Transaction** – Holds each transaction’s details  
 - **TransactionManager** – Saves data to the CSV file  
 - **LedgerScreen** – Shows all, deposit, or payment records  
-- **ReportScreen** – Displays report options (coming soon)  
+- **ReportScreen** – Displays report options
 
 ---
 
