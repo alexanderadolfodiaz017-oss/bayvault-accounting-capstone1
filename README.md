@@ -1,2 +1,2 @@
-# bayvault-accounting-capstone1
-My first capstone project(BayVault_Tech)
+# BayVaultTech-Accounting-Capstone1
+My first Capstone project(BayVault_Tech)
