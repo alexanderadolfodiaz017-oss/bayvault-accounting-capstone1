@@ -48,5 +48,3 @@ Each transaction is stored in `Transaction.csv` in this format:
 
 
 
-
-
