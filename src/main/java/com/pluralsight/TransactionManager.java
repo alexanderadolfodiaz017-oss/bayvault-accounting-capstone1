@@ -8,7 +8,10 @@ public class TransactionManager {
     public void saveToFiles(String line){
         try {
             //1.create a FileWriter(Notes)
-            FileWriter fileWriter = new FileWriter("C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv");
+            FileWriter fileWriter = new FileWriter(
+                    "C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv",
+                    true
+            );
 
             //2.create a BufferedWriter(Notes)
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
