@@ -43,7 +43,6 @@ public class LedgerScreen {
             e.printStackTrace();
 
 
-
             //below here the ledger menu starts
             boolean viewingLedger = true;//<----loop repeats everything inside it (the Ledger menu options) until viewingLedger becomes false.
 
@@ -104,3 +103,4 @@ public class LedgerScreen {
             }
         }
     }
+}
