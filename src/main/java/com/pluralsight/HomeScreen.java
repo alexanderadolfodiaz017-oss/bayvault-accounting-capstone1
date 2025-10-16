@@ -22,7 +22,7 @@ public class HomeScreen {
 
 
 
-        System.out.println("Welcome to Bay Vault");
+        System.out.println("Welcome to Bay Vault Tech");
         System.out.println("(the best banking app in the world!)");
         System.out.println("D.Add a deposit");
         System.out.println("p.Make a payment");
@@ -38,51 +38,75 @@ public class HomeScreen {
 
 
 
-            switch (choice) {//<----these are all the choices the user can choose.He can switch choices if he chooses too.(Notes)
+            switch (choice) {//<----these are all the choices that the user can choose.He can switch choices if he chooses too.(Notes)
+
                 case "d":
                     System.out.println("deposit");
-                    // date - computer
+
                     LocalDate date = LocalDate.now();
+                    // date comes from the computer
+
                     LocalTime time = LocalTime.now();
-                    // time - computer
-                    //description come from the user(scanner)
+                    // time comes from computer already
+
+
                     System.out.println("description");
+                    //description come from the user(scanner)
                     String description = scanner.nextLine();
-                    //User
+
+
                     System.out.println("vendor");
+                    //input comes from the User
                     String vendor = scanner.nextLine();
-                    //User
+
+
                     System.out.println("enter amount");
+                    //Input comes from the User
                     double amount = Double.parseDouble(scanner.nextLine());
+
+                    //My references:(listed below)
                     //public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
                     //page 22 workbook 3a start at "try" go to "first" curly brace to add
                     //date|time|description|vendor|amount
-                    String transaction = date + "\\|" + time + "\\|" + description + "\\|"  + vendor + "\\|"  + amount;
+
+                    String transaction = date + "|" + time + "|" + description + "|"  + vendor + "|"  + amount;
                     manager.saveToFiles(transaction);
                     break;
+
                 case "p":
                     System.out.println("payment");
-                    // date - computer
+
                     LocalDate dateP = LocalDate.now();
+                    // date comes from the computer
+
                     LocalTime timeP = LocalTime.now();
-                    // time - computer
-                    //description come from the user(scanner)
+                    // time comes from computer already
+
                     System.out.println("description");
+                    // description come from the user(scanner)
                     String descriptionP = scanner.nextLine();
-                    //User
+
                     System.out.println("vendor");
+                    //Input comes from the User
                     String vendorP = scanner.nextLine();
-                    //User
+
                     System.out.println("enter amount");
+                    //Input comes from the User
                     double amountP = Double.parseDouble(scanner.nextLine());
+
+                    //My references note:(listed below)
                     //public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
                     //page 22 workbook 3a start at "try" go to "first" curly brace to add
                     //date|time|description|vendor|amount
-                    String transactionP = dateP + "\\|" + timeP + "\\|" + descriptionP + "\\|"  + vendorP + "\\|"  + amountP;
+
+                    String transactionP = dateP + "|" + timeP + "|" + descriptionP + "|"  + vendorP + "|"  + amountP;
                     manager.saveToFiles(transactionP);
+
                     break;
                 case "l":
                     System.out.println("ledger");
+                    LedgerScreen ledger = new LedgerScreen();
+                    ledger.showLedger();
                     break;
                 case "x":
                     System.out.println("exit program");

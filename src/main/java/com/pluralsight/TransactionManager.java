@@ -7,17 +7,20 @@ import java.io.IOException;
 public class TransactionManager {
     public void saveToFiles(String line){
         try {
-            // create a FileWriter
+            //1.create a FileWriter(Notes)
             FileWriter fileWriter = new FileWriter("C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv");
-            // create a BufferedWriter
+
+            //2.create a BufferedWriter(Notes)
             BufferedWriter bufWriter = new BufferedWriter(fileWriter);
-            // write to the file
-                bufWriter.write(line);
-            // close the writer
+
+            //3.write to the file(Notes)
+            bufWriter.write(line);
+
+            //4.close the writer(Notes)
             bufWriter.close();
         }
         catch (IOException e) {
-            System.out.println("ERROR:  An unexpected error occurred");
+            System.out.println("Error 404");
             e.getStackTrace();
         }
     }
