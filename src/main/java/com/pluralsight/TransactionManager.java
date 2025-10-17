@@ -18,8 +18,10 @@ public class TransactionManager {
 
             //3.write to the file(Notes)
             bufWriter.write(line);
-            bufWriter.newLine(); //4.adds each new transaction on a new line (Notes)
-            bufWriter.flush();   //5.saves instantly while program is running (Notes)
+            bufWriter.newLine(); //4.adds a new line for each transaction (Notes)
+
+            //5.flushes the data instantly (Notes)
+            bufWriter.flush();
 
             //6.close the writer(Notes)
             bufWriter.close();
@@ -30,23 +32,24 @@ public class TransactionManager {
         }
     }
 
-    //7.clears all transactions inside the CSV file (optional feature for resetting)(Notes)
-    public void clearTransactions(){
+    //7.clears all transactions from the file(Notes)
+    public void clearTransactions() {
         try {
-            //8.this overwrites the file instead of adding to it (Notes)
+            //8.creates a FileWriter with "false" so it overwrites the file instead of adding new lines (Notes)
             FileWriter fileWriter = new FileWriter(
                     "C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv",
                     false
             );
 
-            //9.clears the file by writing nothing to it (Notes)
+            //9.writes an empty string which clears everything in the CSV file (Notes)
             fileWriter.write("");
             fileWriter.close();
-            System.out.println("All transactions cleared."); //10.tells user file is reset (Notes)
+
+            System.out.println("Transaction file cleared.");
         }
         catch (IOException e) {
-            System.out.println("Error 404 while clearing file");
-            e.getStackTrace();
+            System.out.println("Error clearing transaction file");
+            e.printStackTrace();
         }
     }
 }
