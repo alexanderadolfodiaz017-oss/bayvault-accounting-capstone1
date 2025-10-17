@@ -21,13 +21,17 @@ public class LedgerScreen {
             String input;
 
             //3.read each line until there’s no more data(Notes)
-            while ((input = bufReader.readLine()) != null) {
+            while ((input = bufReader.readLine()) != null && !input.trim().isEmpty()) {
 
                 //4.Turn each line into a Transaction object(Notes)
-                Transaction t = Transaction.parseTransaction(input);
+                try {
+                    Transaction t = Transaction.parseTransaction(input);
 
-                //5. Add it to the list(Notes)
-                transaction.add(t);
+                    //5. Add it to the list(Notes)
+                    transaction.add(t);
+                } catch (Exception e) {
+                    System.out.println("Skipping bad line: " + input);
+                }
             }
 
             //6.close the file when done(Notes)
@@ -57,6 +61,7 @@ public class LedgerScreen {
             switch (choice) {
                 case "a":
                     System.out.println("All transactions (newest first)");
+                    //8.shows everything from newest to oldest (Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
                         System.out.println(transaction.get(i).toCsvLine());
                     }
@@ -64,9 +69,10 @@ public class LedgerScreen {
 
                 case "d":
                     System.out.println("Deposits only");
-                    //8.only shows positive amounts (money going in)(Notes)
+                    //9.only shows positive amounts (money going in)(Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
-                        if (transaction.get(i).getAmount() > 0) {
+                        double amount = transaction.get(i).getAmount();
+                        if (amount > 0) {
                             System.out.println(transaction.get(i).toCsvLine());
                         }
                     }
@@ -74,7 +80,7 @@ public class LedgerScreen {
 
                 case "p":
                     System.out.println("Payments only");
-                    //9.only shows negative amounts (money going out)(Notes)
+                    //10.only shows negative amounts (money going out)(Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
                         double amount = transaction.get(i).getAmount();
                         if (amount < 0) {
@@ -101,3 +107,4 @@ public class LedgerScreen {
         }
     }
 }
+
