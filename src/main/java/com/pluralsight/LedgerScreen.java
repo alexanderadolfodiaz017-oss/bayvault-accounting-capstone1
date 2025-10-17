@@ -24,14 +24,10 @@ public class LedgerScreen {
             while ((input = bufReader.readLine()) != null && !input.trim().isEmpty()) {
 
                 //4.Turn each line into a Transaction object(Notes)
-                try {
-                    Transaction t = Transaction.parseTransaction(input);
+                Transaction t = Transaction.parseTransaction(input);
 
-                    //5. Add it to the list(Notes)
-                    transaction.add(t);
-                } catch (Exception e) {
-                    System.out.println("Skipping bad line: " + input);
-                }
+                //5. Add it to the list(Notes)
+                transaction.add(t);
             }
 
             //6.close the file when done(Notes)
@@ -61,7 +57,6 @@ public class LedgerScreen {
             switch (choice) {
                 case "a":
                     System.out.println("All transactions (newest first)");
-                    //8.shows everything from newest to oldest (Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
                         System.out.println(transaction.get(i).toCsvLine());
                     }
@@ -69,10 +64,8 @@ public class LedgerScreen {
 
                 case "d":
                     System.out.println("Deposits only");
-                    //9.only shows positive amounts (money going in)(Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
-                        double amount = transaction.get(i).getAmount();
-                        if (amount > 0) {
+                        if (transaction.get(i).getAmount() > 0) {
                             System.out.println(transaction.get(i).toCsvLine());
                         }
                     }
@@ -80,17 +73,18 @@ public class LedgerScreen {
 
                 case "p":
                     System.out.println("Payments only");
-                    //10.only shows negative amounts (money going out)(Notes)
                     for (int i = transaction.size() - 1; i >= 0; i--) {
-                        double amount = transaction.get(i).getAmount();
-                        if (amount < 0) {
+                        if (transaction.get(i).getAmount() < 0) {
                             System.out.println(transaction.get(i).toCsvLine());
                         }
                     }
                     break;
 
                 case "r":
-                    System.out.println("Reports coming soon");
+                    System.out.println("Opening Reports...");
+                    //8.opens the ReportScreen when user presses R(Notes)
+                    ReportScreen report = new ReportScreen();
+                    report.showReports();
                     break;
 
                 case "h":
@@ -107,4 +101,3 @@ public class LedgerScreen {
         }
     }
 }
-

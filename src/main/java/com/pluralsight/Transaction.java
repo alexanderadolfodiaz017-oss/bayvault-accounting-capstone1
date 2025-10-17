@@ -5,18 +5,28 @@ import java.time.LocalTime;
 
 public class Transaction {
     // These are the details we need for each transaction
+
     private LocalDate date;
+
     private LocalTime time;
+
     private String description; // what it was for
+
     private String vendor; // who it was with
+
     private double amount; // how much money
 
     // This builds (creates) a new Transaction with all the details
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+
         this.date = date;
+
         this.time = time;
+
         this.description = description;
+
         this.vendor = vendor;// saves who it was with
+
         this.amount = amount;
     }
 
