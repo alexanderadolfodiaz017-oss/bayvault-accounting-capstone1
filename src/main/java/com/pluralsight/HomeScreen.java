@@ -17,7 +17,7 @@ public class HomeScreen {
         boolean running = true;// as long as running is true,the menu keeps showing on repeat till it's false(notes)
         while (running) {
 
-            System.out.println("Welcome to Bay Vault Tech");
+            System.out.println("===Welcome to Bay Vault Tech===");
             System.out.println("(the best banking app in the world!)");
             System.out.println("D.Add a deposit");
             System.out.println("P.Make a payment");

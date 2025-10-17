@@ -13,7 +13,7 @@ public class ReportScreen {
 
             // shows the report menu options
             System.out.println();
-            System.out.println("Reports Menu");
+            System.out.println("==Reports Men==u");
             System.out.println("1) Month To Date");
             System.out.println("2) Previous Month");
             System.out.println("3) Year To Date");
