@@ -17,19 +17,33 @@ Each transaction is stored in `Transaction.csv` in this format:
 - **Transaction** – Holds each transaction’s details  
 - **TransactionManager** – Saves data to the CSV file  
 - **LedgerScreen** – Shows all, deposit, or payment records  
-- **ReportScreen** – Displays report options (coming soon)  
+- **ReportScreen** – Displays report options
 
 ---
 
-## Interesting Code Example  
-```java
-Scanner scanner = new Scanner(System.in); 
+## Images of the Final Product
 
-System.out.println("Enter description: ");
-String description = scanner.nextLine();
+**1. Starting up the program (Home Screen)**  
+![Starting up the program](Images/1.Starting%20up%20the%20program(HomeScreen).png)
 
-System.out.println("Enter vendor: ");
-String vendor = scanner.nextLine();
+**2. Deposit (Part 1)**  
+![Deposit Part 1](Images/2.Depsoit(Part%201).png)
 
-System.out.println("Enter amount: ");
-double amount = Double.parseDouble(scanner.nextLine());
+**3. Deposit (Part 2)**  
+![Deposit Part 2](Images/3.Depsoit(Part%202).png)
+
+**4. Payment (Part 1)**  
+![Payment Part 1](Images/4.Payment(Part%201).png)
+
+**5. Payment (Part 2)**  
+![Payment Part 2](Images/5.Payment(Part%202).png)
+
+**6. Ledger Screen**  
+![Ledger Screen](Images/6.Ledger%20Screen.png)
+
+
+
+
+
+
+
