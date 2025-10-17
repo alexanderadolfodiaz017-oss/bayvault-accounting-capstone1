@@ -24,7 +24,7 @@ public class HomeScreen {
             System.out.println("L.Ledger Screen");
             System.out.println("C.Clear all transactions"); // (Notes) added this option to refresh the CSV file
             System.out.println("X.Exit");
-            System.out.println("D.Make a selection below");
+            System.out.println("Make a selection below:");
 
             //String choice = scanner.nextLine();(Previous Code)
             //I changed it so it can let the user input either upper or lowercase letters(notes)
@@ -83,6 +83,9 @@ public class HomeScreen {
                     //Input comes from the User
                     double amountP = Double.parseDouble(scanner.nextLine());
 
+                    // (Notes) payments must be stored as a negative number to show correctly in the Ledger
+                    amountP = -Math.abs(amountP);
+
                     //My references note:(listed below)
                     //public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
                     //page 22 workbook 3a start at "try" go to "first" curly brace to add
@@ -116,3 +119,4 @@ public class HomeScreen {
         }
     }
 }
+

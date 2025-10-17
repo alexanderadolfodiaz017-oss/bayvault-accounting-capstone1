@@ -9,8 +9,8 @@ public class TransactionManager {
         try {
             //1.create a FileWriter(Notes)
             FileWriter fileWriter = new FileWriter(
-                    "C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv",
-                    true
+                    "src/main/resources/Transaction.csv",
+                    true // (Notes) true = keeps adding instead of deleting old data
             );
 
             //2.create a BufferedWriter(Notes)
@@ -18,37 +18,32 @@ public class TransactionManager {
 
             //3.write to the file(Notes)
             bufWriter.write(line);
-            bufWriter.newLine(); //4.adds a new line for each transaction (Notes)
+            bufWriter.newLine(); // (Notes) added this so each entry goes to a new line
 
-            //5.flushes the data instantly (Notes)
-            bufWriter.flush();
-
-            //6.close the writer(Notes)
+            //4.close the writer(Notes)
             bufWriter.close();
         }
         catch (IOException e) {
             System.out.println("Error 404");
-            e.getStackTrace();
+            e.printStackTrace();
         }
     }
 
-    //7.clears all transactions from the file(Notes)
+    //5.clears all transactions by overwriting the file (Notes)
     public void clearTransactions() {
         try {
-            //8.creates a FileWriter with "false" so it overwrites the file instead of adding new lines (Notes)
-            FileWriter fileWriter = new FileWriter(
-                    "C:\\Users\\josel\\PluralSight\\GitHub\\bayvault-accounting-capstone1\\BayVaultTech\\src\\main\\resources\\Transaction.csv",
-                    false
-            );
+            // (Notes) false = erases everything inside the file
+            FileWriter fileWriter = new FileWriter("src/main/resources/Transaction.csv", false);
 
-            //9.writes an empty string which clears everything in the CSV file (Notes)
+            // (Notes) this writes nothing, basically refreshing the file
             fileWriter.write("");
+
+            // (Notes) close when done
             fileWriter.close();
 
-            System.out.println("Transaction file cleared.");
-        }
-        catch (IOException e) {
-            System.out.println("Error clearing transaction file");
+            System.out.println("All transactions cleared successfully!");
+        } catch (IOException e) {
+            System.out.println("Error 404 while clearing file.");
             e.printStackTrace();
         }
     }
