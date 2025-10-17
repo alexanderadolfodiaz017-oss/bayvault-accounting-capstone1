@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class LedgerScreen {
     public void showLedger() {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Transaction> transactions = new ArrayList<>();
+        ArrayList<Transaction> transaction = new ArrayList<>();
 
         try {
             //1.connect the FileReader to your CSV file(Notes)
@@ -27,7 +27,7 @@ public class LedgerScreen {
                 Transaction t = Transaction.parseTransaction(input);
 
                 //5. Add it to the list(Notes)
-                transactions.add(t);
+                transaction.add(t);
             }
 
             //6.close the file when done(Notes)
@@ -57,28 +57,28 @@ public class LedgerScreen {
             switch (choice) {
                 case "a":
                     System.out.println("All transactions (newest first)");
-                    //8.shows all transactions in reverse order(Notes)
-                    for (int i = transactions.size() - 1; i >= 0; i--) {
-                        System.out.println(transactions.get(i).toCsvLine());
+                    for (int i = transaction.size() - 1; i >= 0; i--) {
+                        System.out.println(transaction.get(i).toCsvLine());
                     }
                     break;
 
                 case "d":
                     System.out.println("Deposits only");
-                    //9.only shows transactions with positive amounts(Notes)
-                    for (int i = transactions.size() - 1; i >= 0; i--) {
-                        if (transactions.get(i).getAmount() > 0) {
-                            System.out.println(transactions.get(i).toCsvLine());
+                    //8.only shows positive amounts (money going in)(Notes)
+                    for (int i = transaction.size() - 1; i >= 0; i--) {
+                        if (transaction.get(i).getAmount() > 0) {
+                            System.out.println(transaction.get(i).toCsvLine());
                         }
                     }
                     break;
 
                 case "p":
                     System.out.println("Payments only");
-                    //10.only shows transactions with negative amounts(Notes)
-                    for (int i = transactions.size() - 1; i >= 0; i--) {
-                        if (transactions.get(i).getAmount() < 0) {
-                            System.out.println(transactions.get(i).toCsvLine());
+                    //9.only shows negative amounts (money going out)(Notes)
+                    for (int i = transaction.size() - 1; i >= 0; i--) {
+                        double amount = transaction.get(i).getAmount();
+                        if (amount < 0) {
+                            System.out.println(transaction.get(i).toCsvLine());
                         }
                     }
                     break;
@@ -89,7 +89,7 @@ public class LedgerScreen {
 
                 case "h":
                     System.out.println("Returning to home screen...");
-                    viewingLedger = false;//<----tells program to stop the Ledger menu loop(Notes)
+                    viewingLedger = false;
                     HomeScreen home = new HomeScreen();
                     home.showMenu();
                     break;
